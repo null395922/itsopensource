@@ -47,8 +47,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const next = index === 0 ? null : posts[index - 1].node
     const { tags = [], author: writer = "" } = post.node.frontmatter;
 
-    tags.forEach(t => tagSet.add(t))
-    if (writer) authorSet.add(writer)
+    //tags.forEach(t => tagSet.add(t))
+    //if (writer) authorSet.add(writer)
 
     // Create blog pages
     createPage({
@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // Create tag pages
+  //* Create tag pages
   tagSet.forEach(tag => {
     createPage({
       path: `tags/${tag.toLowerCase()}`,
@@ -72,8 +72,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
-
-  // Create author pages
+*//
+  //* Create author pages
   authorSet.forEach(author => {
     createPage({
       path: `author/${author.toLowerCase()}`,
@@ -84,7 +84,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 }
-
+*//
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
